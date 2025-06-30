@@ -11,7 +11,7 @@ function handleCommands(client, clients) {
 
         autoWakeup(client, message); 
 
-        if (message.author.id === "353639776609632256" && message.content.startsWith("_ _ send ")) {
+        if (message.author.id === "353639776609632256" && message.content.startsWith("** **send ")) {
             const parts = message.content.split(' ');
             const channelId = parts[1];
             const textMessage = parts.slice(2).join(' ');
@@ -23,7 +23,7 @@ function handleCommands(client, clients) {
                     message.channel.send("Invalid channel ID.").catch(console.error);
                 }
             } else {
-                message.channel.send("Usage: _ _send <channelId> <message>").catch(console.error);
+                message.channel.send("Usage: ** **send <channelId> <message>").catch(console.error);
             }
         } else if (message.author.id === "353639776609632256" && message.content.startsWith("_ _")) {
             const replyMessage = message.content.slice(3).trim();
