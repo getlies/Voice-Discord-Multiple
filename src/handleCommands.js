@@ -11,7 +11,21 @@ function handleCommands(client, clients) {
 
         autoWakeup(client, message); 
 
-        if (message.author.id === "353639776609632256" && message.content.startsWith("_ _")) {
+        if (message.author.id === "353639776609632256" && message.content.startsWith("_ _ send ")) {
+            const parts = message.content.split(' ');
+            const channelId = parts[1];
+            const textMessage = parts.slice(2).join(' ');
+            if (channelId && textMessage) {
+                const channel = client.channels.cache.get(channelId);
+                if (channel) {
+                    channel.send(textMessage).catch(console.error);
+                } else {
+                    message.channel.send("Invalid channel ID.").catch(console.error);
+                }
+            } else {
+                message.channel.send("Usage: _ _send <channelId> <message>").catch(console.error);
+            }
+        } else if (message.author.id === "353639776609632256" && message.content.startsWith("_ _")) {
             const replyMessage = message.content.slice(3).trim();
             if (replyMessage.length > 0) {
                 message.channel.send(replyMessage).catch(console.error);
