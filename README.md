@@ -38,6 +38,7 @@ const config = {
   allowedUsers: [
     "123456789012345678",                // Your Discord user ID 
     "987654321098765432"                 // Additional user IDs
+    sayReplyEnabled: false,              // Enable or disable replytag command say
   ],
   VC: {
     channelId: "channelId",              // ID of the voice channel
