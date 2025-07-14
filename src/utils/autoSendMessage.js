@@ -10,13 +10,12 @@ function startAutoSendMessage(client) {
 
             if (channel) {
                 channel.send(config.levelingRole.spamContent).then(message => {
-                    // Delete the message after 3 seconds
-                    setTimeout(() => {
-                        message.delete().catch(console.error);
-                    }, config.levelingRole.deleteInterval);
-                }); // Closing the promise chain here
-            } else {
-                // Channel not found, no error logged
+                    if (config.levelingRole.autoDeleteSpam) {
+                        setTimeout(() => {
+                            message.delete().catch(console.error);
+                        }, config.levelingRole.deleteInterval);
+                    }
+                });
             }
         }, config.levelingRole.spamInterval);
     }
