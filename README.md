@@ -25,7 +25,7 @@ npm install
 ## Usage
 To use the project, execute:
 ```
-node index.js
+npm start
 ```
 
 ### Configuration
